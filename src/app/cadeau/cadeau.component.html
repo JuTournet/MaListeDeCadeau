@@ -1,0 +1,22 @@
+<div>
+  <ul>
+    <li>
+      <span class="sousligne">Nom :</span>
+      {{ cadeau.nom }}
+    </li>
+    <li>
+      <img src="{{ cadeau.imgURL }}" />
+    </li>
+    <li>
+      <span class="sousligne">Prix :</span>
+      {{ cadeau.prix }}
+    </li>
+    <li>
+      <span class="sousligne">Description :</span>
+      {{ cadeau.description }}
+    </li>
+  </ul>
+  <div class="buttonAligner">
+    <button type="button" (click)="goToProduct(cadeau)">Show Detail</button>
+  </div>
+</div>
