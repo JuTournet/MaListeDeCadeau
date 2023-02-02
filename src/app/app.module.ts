@@ -9,13 +9,14 @@ import { SearchFormComponent } from './search-form/search-form.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { CadeauListComponent } from './cadeau-list/cadeau-list.component';
-
+import { CadeauComponent } from './cadeau/cadeau.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchFormComponent,
-    CadeauListComponent
+    CadeauListComponent,
+    CadeauComponent
   ],
   imports: [
     BrowserModule,
