@@ -7,8 +7,9 @@ import listCadeaux from '../../assets/listCadeaux.json';
   providedIn: 'root',
 })
 export class ReadingJsonFile {
-  ListeCadeaux: any = listCadeaux;
+  ListeCadeaux!: any;
   getCadeaux(): Observable<Cadeau[]> {
+    this.ListeCadeaux  = listCadeaux;
     return of(this.ListeCadeaux);
   }
 }
