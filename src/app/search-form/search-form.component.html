@@ -1,4 +1,4 @@
-<form [formGroup]="searchForm">
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
     <div class="input">
         <label for="prenom">Prénom </label>
         <input id="prenom" type="text" formControlName="prenom">
@@ -22,4 +22,7 @@
         <label for="centre_interet">Centre d'intérêt </label>
         <input id="centre_interet" type="text" formControlName="centre_interet">
     </div>
+    <div class="button-search">
+        <button type="submit"> Rechercher</button>
+    </div>  
 </form>
