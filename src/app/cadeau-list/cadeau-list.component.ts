@@ -9,7 +9,7 @@ import { ReadingJsonFile } from '../service/readingJson';
 @Component({
   selector: 'app-cadeau-list',
   templateUrl: './cadeau-list.component.html',
-  styleUrls: ['./cadeau-list.component.scss'],
+  styleUrls: ['./cadeau-list.component.scss']
 })
 export class CadeauListComponent implements OnInit {
   cadeaux$!: Observable<Cadeau[]>;
@@ -25,4 +25,5 @@ export class CadeauListComponent implements OnInit {
       })
     );
   }
+
 }

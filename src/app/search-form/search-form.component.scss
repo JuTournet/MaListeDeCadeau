@@ -1,0 +1,24 @@
+form {
+    display:flex;
+    justify-content:space-evenly;
+    padding: 20px;
+    font-size: 16px;
+    background-color: #a9a;
+}
+
+.input {
+    margin-top: 20px;
+}
+
+.button-search {
+    display:flex;
+    justify-content: center;
+    background-color: #a9a;
+}
+
+button {
+    font-size: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
