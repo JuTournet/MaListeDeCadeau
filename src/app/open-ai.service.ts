@@ -19,7 +19,7 @@ readonly openai = new OpenAIApi(this.configuration);
   getDataFromOpenAI(text: string){
     from(this.openai.createCompletion({
       model: "text-davinci-003",
-      prompt: ("liste idées cadeaux avec nom, prix, description pour" + text +" en format json"),
+      prompt: ("liste idées cadeaux avec nom, prix, description pour " + text +" en format JSON"),
       max_tokens: 500
     })).pipe(
       filter(resp => !!resp && !!resp.data),
@@ -27,7 +27,6 @@ readonly openai = new OpenAIApi(this.configuration);
       filter((data: any) => data.choices && data.choices.length > 0 && data.choices[0].text),
       map(data => data.choices[0].text)
     ).subscribe(data => {
-      console.log("in progress");
       this.service.createListe(data);
     });
   }

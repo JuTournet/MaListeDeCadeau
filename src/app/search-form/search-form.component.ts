@@ -7,37 +7,38 @@ import { ServiceCadeauxService } from '../service/service-cadeaux.service';
 @Component({
   selector: 'app-search-form',
   templateUrl: './search-form.component.html',
-  styleUrls: ['./search-form.component.scss']
+  styleUrls: ['./search-form.component.scss'],
 })
 export class SearchFormComponent {
-  searchForm!:FormGroup;
+  searchForm!: FormGroup;
   genres: any[] = ['Masculin', 'Féminin', 'Ne se prononce pas'];
 
-  constructor (public fb:FormBuilder, private service:OpenAiService, private serviceCad:ServiceCadeauxService, private router:Router) {
-
-    this.searchForm = this.fb.group ({
+  constructor(
+    public fb: FormBuilder,
+    private service: OpenAiService,
+    private serviceCad: ServiceCadeauxService,
+    private router: Router
+  ) {
+    this.searchForm = this.fb.group({
       prenom: [''],
       genre: ['', [Validators.required]],
       age: [''],
       centre_interet: [''],
-    })
+    });
   }
 
-  onChange(event: any) {
-    console.log(event.value);
-  }
+  onChange(event: any) {}
 
   onSubmit(): void {
     const prenom = this.searchForm.get('prenom')?.value;
     let genre = this.searchForm.get('genre')?.value;
-    if(genre === "Ne se prononce pas") {
-      genre = "mixte";
+    if (genre === 'Ne se prononce pas') {
+      genre = 'mixte';
     }
     const age = this.searchForm.get('age')?.value;
     const centreInteret = this.searchForm.get('centre_interet')?.value;
-    const requete = prenom + " , " + age + " ans" + " qui aime : " + centreInteret;
+    const requete =
+      prenom + ' , ' + age + ' ans' + ' qui aime : ' + centreInteret;
     this.service.getDataFromOpenAI(requete);
-
   }
-
 }
