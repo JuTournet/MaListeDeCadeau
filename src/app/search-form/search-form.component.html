@@ -1,30 +1,33 @@
-<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-  <div class="input">
-    <label for="prenom">Prénom </label>
-    <input id="prenom" type="text" formControlName="prenom" />
-  </div>
-  <div class="input-mat">
-    <label for="genre">Genre </label>
-    <mat-form-field appearance="fill">
-      <mat-select (selectionChange)="onChange($event)">
-        <mat-option *ngFor="let genre of genres" [value]="genre">
-          {{ genre }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-  <div class="input">
-    <label for="age">Age </label>
-    <input id="age" type="number" min="1" max="99" formControlName="age" />
-  </div>
-  <div class="input">
-    <label for="centre_interet">Centre d'intérêt </label>
-    <input id="centre_interet" type="text" formControlName="centre_interet" />
-  </div>
-  <div class="button-search">
-    <button type="submit">Cherche mon cadeau !</button>
-  </div>
-</form>
+<div class="form-front">
+  <p>Mon Générateur de Cadeaux</p>
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <div class="input">
+      <label for="prenom">Prénom </label>
+      <input id="prenom" type="text" formControlName="prenom" />
+    </div>
+    <div class="input-mat">
+      <label for="genre">Genre </label>
+      <mat-form-field appearance="fill">
+        <mat-select (selectionChange)="onChange($event)">
+          <mat-option *ngFor="let genre of genres" [value]="genre">
+            {{ genre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="input">
+      <label for="age">Age </label>
+      <input id="age" type="number" min="1" max="99" formControlName="age" />
+    </div>
+    <div class="input">
+      <label for="centre_interet">Centre d'intérêt </label>
+      <input id="centre_interet" type="text" formControlName="centre_interet" />
+    </div>
+    <div class="button-search">
+      <button type="submit">Cherche mon cadeau !</button>
+    </div>
+  </form>
+</div>
 
 <div>
   <div *ngIf="isValidated[0] === true">
