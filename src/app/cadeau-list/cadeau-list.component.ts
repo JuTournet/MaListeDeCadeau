@@ -5,7 +5,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { concatMap } from 'rxjs/operators';
 import { ServiceCadeauxService } from '../service/service-cadeaux.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
-// import { ReadingJsonFile } from '../service/readingJson';
+import { ErrorNumber } from '../model/listeCadeaux.model';
 
 @Component({
   selector: 'app-cadeau-list',
@@ -16,6 +16,8 @@ export class CadeauListComponent implements OnInit {
   cadeaux$!: Observable<Cadeau[]>;
   montant:number = 500;
   filtre!:FormGroup;
+  ErrorNum = ErrorNumber;
+;
 
   constructor(
     private service: ServiceCadeauxService,
@@ -30,7 +32,7 @@ export class CadeauListComponent implements OnInit {
 
   ngOnInit() {
     this.cadeaux$ = this.route.paramMap.pipe(
-      concatMap((params) => {
+      concatMap(() => {
         return this.service.getCadeaux();
       })
     );

@@ -8,6 +8,8 @@
   </div>
 </form>
 
+<div class="message-erreur" *ngIf="ErrorNum[0] > 0">Erreur {{ErrorNum[0]}}, veuillez réessayer.</div>
+
 <div>
     <app-cadeau
     *ngFor="let cadeau of cadeaux$ | async"
