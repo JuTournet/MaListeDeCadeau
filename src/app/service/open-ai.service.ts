@@ -3,7 +3,7 @@ import { Configuration, OpenAIApi } from 'openai';
 import { from, filter, map } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { ServiceCadeauxService } from './service-cadeaux.service';
-import { isValidated } from '../model/listeCadeaux.model';
+import { ErrorNumber, isValidated } from '../model/listeCadeaux.model';
 
 @Injectable({
   providedIn: 'root',
@@ -49,14 +49,17 @@ export class OpenAiService {
           });
           const image_url = response.data.data[0].url as string;
 
-          this.service.addToListe(arrayData[i], image_url, i);
+            this.service.addToListe(arrayData[i], image_url, i);
+          }
+          isValidated[0] = false;
+        },
+        (err) => {
+
+          ErrorNumber[0] = err;
+        },
+        () => {
+          console.log('complete !');
         }
-        isValidated[0] = false;
-      },
-      (err) => {
-        console.log('error !')},
-      () => {
-        console.log('complete !')
-      });
+      );
   }
 }
