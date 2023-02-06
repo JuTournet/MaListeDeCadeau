@@ -3,5 +3,4 @@ export class Cadeau {
   imgURL!: string;
   prix!: number;
   description!: string;
-  lienProduit!: string;
 }

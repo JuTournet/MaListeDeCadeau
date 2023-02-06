@@ -9,15 +9,13 @@ import { ListeCadeaux } from '../model/listeCadeaux.model';
 export class ServiceCadeauxService {
   cadeau!: Cadeau;
 
-  createListe(response: string): void {
-    let data: any[] = JSON.parse(response);
-    for (let i = 0; i < data.length; i++) {
+  addToListe(data: Cadeau, image_url: string, index: number): void {
       this.cadeau = new Cadeau();
-      this.cadeau.nom = data[i].nom;
-      this.cadeau.description = data[i].description;
-      this.cadeau.prix = data[i].prix;
-      ListeCadeaux.push(this.cadeau);
-    }
+      this.cadeau.nom = data.nom;
+      this.cadeau.description = data.description;
+      this.cadeau.prix = data.prix;
+      this.cadeau.imgURL = image_url;
+      ListeCadeaux[index] = this.cadeau;
   }
 
   getCadeaux(): Observable<Cadeau[]> {

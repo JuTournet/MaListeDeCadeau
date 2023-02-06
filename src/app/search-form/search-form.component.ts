@@ -34,14 +34,17 @@ export class SearchFormComponent {
   onSubmit(): void {
     isValidated[0] = true;
     const prenom = this.searchForm.get('prenom')?.value;
-    let genre = this.searchForm.get('genre')?.value;
-    if (genre === 'Ne se prononce pas') {
-      genre = 'mixte';
-    }
     const age = this.searchForm.get('age')?.value;
     const centreInteret = this.searchForm.get('centre_interet')?.value;
-    const requete =
-      prenom + ' , ' + age + ' ans' + ' qui aime : ' + centreInteret;
+    let genre = this.searchForm.get('genre')?.value;
+    let requete = '';
+    if (genre === 'Ne se prononce pas') {
+      requete =
+        prenom + ' , ' + age + ' ans qui aime : ' + centreInteret;
+    } else {
+       requete =
+        prenom + ' , ' + age + ' ans, de sexe ' + genre + ' qui aime : ' + centreInteret;
+    }
     this.service.getDataFromOpenAI(requete);
   }
 }
