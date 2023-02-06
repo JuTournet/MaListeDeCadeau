@@ -1,22 +1,24 @@
-<div>
-  <ul>
-    <li>
-      <span class="sousligne">Nom :</span>
-      {{ cadeau.nom }}
-    </li>
-    <li>
-      <img src="{{ cadeau.imgURL }}" />
-    </li>
-    <li>
-      <span class="sousligne">Prix :</span>
-      {{ cadeau.prix }}
-    </li>
-    <li>
-      <span class="sousligne">Description :</span>
-      {{ cadeau.description }}
-    </li>
-  </ul>
-  <div class="buttonAligner">
-    <button type="button" (click)="goToProduct(cadeau)">Search on the web</button>
+<div *ngIf="cadeau.prix < montant">
+  <div class="cadeau-card" >
+    <ul>
+      <li>
+        <img src="{{ cadeau.imgURL }}" />
+      </li>
+      <li>
+        <span class="sousligne">Nom :</span>
+        {{ cadeau.nom }}
+      </li>
+      <li>
+        <span class="sousligne">Prix :</span>
+        {{ cadeau.prix }} €
+      </li>
+      <li>
+        <span class="sousligne">Description :</span>
+        {{ cadeau.description }}
+      </li>
+    </ul>
+    <div class="buttonAligner">
+      <button type="button" (click)="goToProduct(cadeau)">Trouve le sur le web</button>
+    </div>
   </div>
 </div>

@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Configuration, OpenAIApi } from 'openai';
 import { from, filter, map } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { ListeCadeaux } from '../model/listeCadeaux.model';
 import { ServiceCadeauxService } from './service-cadeaux.service';
+import { isValidated } from '../model/listeCadeaux.model';
 
 @Injectable({
   providedIn: 'root',
@@ -51,6 +51,7 @@ export class OpenAiService {
 
           this.service.addToListe(arrayData[i], image_url, i);
         }
+        isValidated[0] = false;
       },
       (err) => {
         console.log('error !')},

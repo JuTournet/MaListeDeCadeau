@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { OpenAiService } from '../service/open-ai.service';
 import { ServiceCadeauxService } from '../service/service-cadeaux.service';
+import { isValidated } from '../model/listeCadeaux.model';
 
 @Component({
   selector: 'app-search-form',
@@ -12,6 +13,7 @@ import { ServiceCadeauxService } from '../service/service-cadeaux.service';
 export class SearchFormComponent {
   searchForm!: FormGroup;
   genres: any[] = ['Masculin', 'Féminin', 'Ne se prononce pas'];
+  isValidated = isValidated;
 
   constructor(
     public fb: FormBuilder,
@@ -30,6 +32,7 @@ export class SearchFormComponent {
   onChange(event: any) {}
 
   onSubmit(): void {
+    isValidated[0] = true;
     const prenom = this.searchForm.get('prenom')?.value;
     const age = this.searchForm.get('age')?.value;
     const centreInteret = this.searchForm.get('centre_interet')?.value;

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Cadeau } from '../model/cadeau.model';
+import { Montant } from '../model/listeCadeaux.model';
 
 @Component({
   selector: 'app-cadeau',
@@ -10,6 +11,7 @@ export class CadeauComponent implements OnInit {
   @Input('inputCadeau') cadeau!: Cadeau;
   productURL!: string;
   tag!: string[];
+  @Input('montant') montant!:number;
 
   ngOnInit(): void {}
   goToProduct(cadeau: Cadeau) {
