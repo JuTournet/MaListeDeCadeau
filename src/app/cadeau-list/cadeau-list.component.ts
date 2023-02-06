@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Cadeau } from '../model/cadeau.model';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap, concatMap } from 'rxjs/operators';
+import { concatMap } from 'rxjs/operators';
 import { ServiceCadeauxService } from '../service/service-cadeaux.service';
+// import { ReadingJsonFile } from '../service/readingJson';
 
 @Component({
   selector: 'app-cadeau-list',
@@ -17,9 +18,7 @@ export class CadeauListComponent implements OnInit {
     private service: ServiceCadeauxService,
     private route: ActivatedRoute,
     private router: Router
-  ) {
-    // this.cadeaux$ = this.service.getCadeaux();
-  }
+  ) {}
 
   ngOnInit() {
     this.cadeaux$ = this.route.paramMap.pipe(

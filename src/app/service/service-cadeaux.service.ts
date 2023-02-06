@@ -7,7 +7,6 @@ import { ListeCadeaux } from '../model/listeCadeaux.model';
   providedIn: 'root',
 })
 export class ServiceCadeauxService {
-  listeCadeaux!: Cadeau[];
   cadeau!: Cadeau;
 
   createListe(response: string): void {
