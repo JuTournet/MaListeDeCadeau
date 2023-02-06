@@ -1,6 +1,17 @@
+<form [formGroup] = "filtre" (ngSubmit)="onSubmit()">
+  <div class="slidecontainer">
+    <input type="range" min="1" max="500" class="slider" id="myRange">
+    <p>Mon Budget Cadeaux : <span id="demo"></span> €</p>
+  </div>
+  <div class="button-budget">
+    <button type="submit">Valider</button>
+  </div>
+</form>
+
 <div>
-  <app-cadeau
+    <app-cadeau
     *ngFor="let cadeau of cadeaux$ | async"
     [inputCadeau]="cadeau"
+    [montant] = "montant"
   ></app-cadeau>
 </div>
