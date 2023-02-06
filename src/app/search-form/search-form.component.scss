@@ -1,24 +1,57 @@
 form {
-    display:flex;
-    justify-content:space-evenly;
-    padding: 20px;
-    font-size: 16px;
-    background-color: #a9a;
+  display:flex;
+  justify-content:space-evenly;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: 450;
+  background-color: #bd250e;
+  align-items: center;
+  color: white;
+  text-shadow: 1px 1px #171313;
 }
 
-.input {
-    margin-top: 20px;
+.input-mat {
+  margin-top:15px;
+  text-shadow: none;
+}
+
+input {
+  padding: 18px;
+  font-size: 16px;
 }
 
 .button-search {
-    display:flex;
-    justify-content: center;
-    background-color: #a9a;
+  display:flex;
+  align-items: center;
 }
 
 button {
-    font-size: 15px;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 8px;
+  font-size: 15px;
+  padding: 6px 24px;
+  border-radius: 8px;
+  background-color: #83a649;
+  border: #83a649;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+
+.rubik-loader {
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url(http://i.giphy.com/3og0ISeflb7vrNzy2A.gif);
+  background-repeat: no-repeat;
+  background-position: center;
 }
