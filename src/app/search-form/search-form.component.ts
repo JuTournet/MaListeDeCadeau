@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { OpenAiService } from '../open-ai.service';
+import { OpenAiService } from '../service/open-ai.service';
 import { ServiceCadeauxService } from '../service/service-cadeaux.service';
 
 @Component({
@@ -31,14 +31,17 @@ export class SearchFormComponent {
 
   onSubmit(): void {
     const prenom = this.searchForm.get('prenom')?.value;
-    let genre = this.searchForm.get('genre')?.value;
-    if (genre === 'Ne se prononce pas') {
-      genre = 'mixte';
-    }
     const age = this.searchForm.get('age')?.value;
     const centreInteret = this.searchForm.get('centre_interet')?.value;
-    const requete =
-      prenom + ' , ' + age + ' ans' + ' qui aime : ' + centreInteret;
+    let genre = this.searchForm.get('genre')?.value;
+    let requete = '';
+    if (genre === 'Ne se prononce pas') {
+      requete =
+        prenom + ' , ' + age + ' ans qui aime : ' + centreInteret;
+    } else {
+       requete =
+        prenom + ' , ' + age + ' ans, de sexe ' + genre + ' qui aime : ' + centreInteret;
+    }
     this.service.getDataFromOpenAI(requete);
   }
 }

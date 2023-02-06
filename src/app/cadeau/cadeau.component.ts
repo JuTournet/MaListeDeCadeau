@@ -14,16 +14,13 @@ export class CadeauComponent implements OnInit {
   ngOnInit(): void {}
   goToProduct(cadeau: Cadeau) {
     this.tag = cadeau.nom.split(' ');
-    console.log(this.tag);
     this.productURL = 'https://www.google.com/search?q=';
     for (let i = 0; i < this.tag.length; i++) {
-    console.log(i);
     this.productURL += this.tag[i];
       if (i < this.tag.length - 1 ) {
         this.productURL += '+';
       }
     }
-    console.log(this.productURL);
     window.open(this.productURL, '_blank');
   }
 }
