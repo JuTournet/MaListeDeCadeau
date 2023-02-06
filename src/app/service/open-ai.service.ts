@@ -22,7 +22,7 @@ export class OpenAiService {
       this.openai.createCompletion({
         model: 'text-davinci-003',
         prompt:
-          'liste 6 idées cadeaux avec nom, prix, description pour ' +
+          'liste 6 idées cadeaux avec nom, prix(€), description pour ' +
           text +
           ' en format JSON (nom, prix, description) en français',
         max_tokens: 1000,
@@ -45,7 +45,7 @@ export class OpenAiService {
           const response = await this.openai.createImage({
             prompt: arrayData[i].description,
             n: 1,
-            size: '512x512',
+            size: '256x256',
           });
           const image_url = response.data.data[0].url as string;
 

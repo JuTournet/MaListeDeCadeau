@@ -5,13 +5,13 @@
 
 .cadeau-card {
   font-size: 15px;
-  height: 300px;
   width: 400px;
   padding: 30px;
   border-radius: 10px;
   margin: 20px;
   background-color: white;
   box-shadow: 2px 2px #212121;
+  height: 501px;
 }
 
 button {
@@ -34,4 +34,9 @@ ul {
 
 .buttonAligner {
   text-align: end;
+}
+
+img {
+  padding-left: 70px;
+  padding-top: 20px;
 }
