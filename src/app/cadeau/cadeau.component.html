@@ -1,11 +1,9 @@
 <div *ngIf="cadeau.prix < montant">
   <div class="cadeau-card" >
+    <img src="{{ cadeau.imgURL }}" />
     <ul>
       <li>
-        <img src="{{ cadeau.imgURL }}" />
-      </li>
-      <li>
-        <span class="sousligne">Nom :</span>
+        <span class="sousligne">Cadeau :</span>
         {{ cadeau.nom }}
       </li>
       <li>
